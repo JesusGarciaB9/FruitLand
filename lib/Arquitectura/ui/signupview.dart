@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fruitland/Arquitectura/models/product.dart';
 import 'package:http/http.dart' as http;
 import './../components/widgetsbasicos.dart'; 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:async';
-
+import './../viewmodels/Shoplistmodel.dart';
 class SignUp extends StatelessWidget {
   final nameController = TextEditingController();
   final passController = TextEditingController();
@@ -46,10 +47,13 @@ class SignUp extends StatelessWidget {
   }
 }
 Future signUp(String email, String password) async {
+  ShopListModel crear = new ShopListModel();
  
     try{
           FirebaseUser user = (await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password)).user;
+       
              print('Register succes in ${user.uid} ');
+                await crear.create(user.uid,user.email);
              return user;
     }catch(e){
         print('Error: $e');

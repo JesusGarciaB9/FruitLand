@@ -14,7 +14,7 @@ class Vecinosmodel extends BaseModel {
   String uid;
   String username;
   List<UserList> listas = [];
-
+ 
   Future getvecinosList(String id, String user) async {
     setState(ViewState.Busy);
     uid = id;
@@ -22,19 +22,28 @@ class Vecinosmodel extends BaseModel {
 /*.where('pacienteUid', isEqualTo: widget.user.uid)*/
     QuerySnapshot qShot =
         await Firestore.instance.collection('ShopList').getDocuments();
-
     List<UserList> a =
         qShot.documents.map((doc) => new UserList.fromJson(doc.data)).toList();
 
     for (var item in a) {
-      print("item ");
-      if (item.abierta == "cerrada" && item.myid != id) {
-        print("entro");
-        listas.add(item);
+      if (item.abierta == "cerrada" && item.myid != id) { //validamos que sea una lista cerrada y que no sea la mia
+        if(item.pertenecea == "$id" || item.pertenecea == ""){ //validamos que la lista no esté tomada por otra persona
+          listas.add(item);
+        } 
       }
+     
+       
     }
 
     setState(ViewState.Idle);
+    return Future.value(true);
+  }
+
+
+  Future addlist2(String myid, String idtoadd ,String dato) {
+    Firestore.instance.collection('ShopList').document('$idtoadd').updateData({
+      'pertenecea': dato,
+    });
     return Future.value(true);
   }
 }

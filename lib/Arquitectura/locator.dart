@@ -9,17 +9,21 @@ import './viewmodels/authprovider.dart';
 import 'services/api.dart';
 import './viewmodels/mylistmodel.dart';
 import './viewmodels/vecinosmodel.dart';
+import './services/listservice.dart';
 GetIt locator = GetIt.instance;
 
 void setupLocator() {
   locator.registerLazySingleton(() => AuthenticationService());
   locator.registerLazySingleton(() => Api());
   locator.registerLazySingleton(() => ProductListService());
+    locator.registerLazySingleton(() => ListService());
   locator.registerFactory(() => LoginModel());
   locator.registerFactory(() => ShopListModel());
   locator.registerFactory(() => HomeModel());
   locator.registerFactory(() => AuthProvider());
   locator.registerFactory(() => MyListModel());
   locator.registerFactory(() => Vecinosmodel());
+  
+  
 
 }

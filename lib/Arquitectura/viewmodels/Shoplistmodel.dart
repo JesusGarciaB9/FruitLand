@@ -82,4 +82,25 @@ class ShopListModel extends BaseModel {
 
 
   }
+
+  
+  Future create(String superid,String supername) async {
+    
+    print("${superid}");
+    print("${supername}");
+       
+    List<Map> list=new List();
+    double total = 0;
+
+    await Firestore.instance.collection('ShopList').document('$superid').setData({
+      'list': FieldValue.arrayUnion(list), 
+      'useremail':'$supername',
+      'estado':'abierta',
+      'Total':'$total',
+      'myId' :'$superid',
+      'IdListas' :  FieldValue.arrayUnion([]), 
+    }
+           );
+    print("lo creó?");
+  }
 }

@@ -26,6 +26,14 @@ class Product {
       cuantity: 0,
     );
   }
+    factory Product.fromJson2(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'],
+      name: json['name'],
+      price: json['price'],
+      cuantity: json['cuantity'],
+    );
+  }
     Map<String, dynamic> toJson() =>
     {
       'name': name,

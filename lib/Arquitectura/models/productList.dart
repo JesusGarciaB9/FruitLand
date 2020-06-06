@@ -5,28 +5,31 @@ class UserList {
   final String useremail;
   final String abierta;
   final double total;
-  final List<String> idlists;
+ 
   final String myid;
-  UserList({this.productos,this.useremail,this.abierta,this.total,this.myid,this.idlists,});
+  final String pertenecea;
+  UserList({this.productos,this.useremail,this.abierta,this.total,this.myid ,this.pertenecea});
 
-  UserList.initial()
+  UserList.initial( )
       : useremail = "",
         abierta ="",
         total = 0,
-        idlists = [],
         myid = "",
-        productos = [];
+        pertenecea = "",
+        productos =  [];
+        
 
  factory UserList.fromJson(Map<String, dynamic> json) {
     var list = json['list'] as List;
-     List<String> list2 = json['idlist'] as List;
-    List<Product> product = list.map((i) => Product.fromJson(i)).toList();
+ 
+    List<Product> product = list.map((i) => Product.fromJson2(i)).toList();
       return UserList( 
       productos : product,
       useremail: json['useremail'],
       abierta:json['estado'],
       total:double.parse(json['Total']),
-      idlists: list2,
+      pertenecea: json['pertenecea'],
+ 
       myid : json['myId'],
     );
   }
