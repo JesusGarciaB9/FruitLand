@@ -47,10 +47,7 @@ class Home extends StatelessWidget {
                  FlatButton(
                     child: Text('My Neighbours'),
                     onPressed: () => vecinos(context,model.uid,model.username)),
-                
-                FlatButton(
-                    child: Text('Buy List'),
-                    onPressed: (){}),
+ 
                 Spacer(),
           ],
               )

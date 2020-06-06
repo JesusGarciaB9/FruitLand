@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruitland/Arquitectura/models/product.dart';
 import 'package:http/http.dart' as http;
 import './../models/user.dart';
-
+import './../viewmodels/Shoplistmodel.dart';
 
 /// The service responsible for networking requests
 class Api {

@@ -8,15 +8,21 @@ import './../base/baseview.dart';
 import './../base/baseModel.dart';
 import './../viewmodels/authprovider.dart';
 import 'package:collection/collection.dart';
-
-class MisProductos extends StatelessWidget {
+import 'package:cloud_firestore/cloud_firestore.dart';
+class MisProductos extends StatefulWidget {
   final String myid;
   final String username;
 MisProductos({this.myid,this.username});
+
+  @override
+  _MisProductosState createState() => _MisProductosState();
+}
+
+class _MisProductosState extends State<MisProductos> {
   @override
   Widget build(BuildContext context) {
   return BaseView<MyListModel>(
-        onModelReady: (model) => model.getMyList(myid,username),
+        onModelReady: (model) => getdata(model,widget.myid,widget.username),
         builder: (context, model, child) => Scaffold(
             appBar: AppBar(
               title: Text("My List <3"),
@@ -34,10 +40,11 @@ MisProductos({this.myid,this.username});
             body: model.state == ViewState.Busy
                 ? Center(child: CircularProgressIndicator())
                 : Center(
-                    child: model.uid == null
+                    child: model.listavecinos == null && model.milista.useremail != null
                         ? Text('No data')
                         : 
-                       Center(   
+                       Center(
+                         
                       child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
@@ -56,12 +63,46 @@ MisProductos({this.myid,this.username});
                          height: 160,
                        child: listaadded(context,model),
                        ),
-                       Container(
-                                    child: FlatButton(
-                                      color:Colors.blue,
-                          child: Text("Cerrar con ${model.totalfinal.toString()} pesos "),
-                          onPressed: () => {})               
-                       ),
+                  
+                                                           StreamBuilder(
+               stream: Firestore.instance.collection('ShopList').document(model.milista.myid).snapshots(),
+              builder: (BuildContext context,  AsyncSnapshot<DocumentSnapshot> snapshot) {
+                if(!snapshot.hasData){
+                 print(snapshot.connectionState);
+                }else{
+                  if  (snapshot.data != null){
+                 var data = snapshot.data.data;
+                 if (data != null){
+     
+                 UserList  usuarioL = new UserList.fromJson(snapshot.data.data);
+            
+                 if (usuarioL.abierta == "abierta"){
+                      return new FlatButton( 
+                                child: Text('Cerrar'),
+                                onPressed:(){
+                                     cerrarandchange(context, model, model.milista.myid);
+                                                               
+                                 },
+                           );
+                 }else{
+                       return new FlatButton( 
+                                child: Text('Finalizar'),
+                                onPressed:(){ 
+                                                   finalize(context, model, model.milista.myid);               
+                                 },
+                           );
+                 }
+                 }
+              } }  return new FlatButton( 
+                                child: Text('Cerrar'),
+                                onPressed:(){
+                                             cerrarandchange(context, model, model.milista.myid); 
+                                                               
+                                 },
+                           );             
+               }
+            ),
+                       
                     ],
                   ) 
                   
@@ -71,26 +112,42 @@ MisProductos({this.myid,this.username});
                           )
                           );
   }
+  void getdata(MyListModel model ,String id,String mail) async{
+    print("mi ide ${widget.myid}");
+     model.getMyList(widget.myid,widget.username);
+  }
+  void cerrarandchange(context,MyListModel model,String id )async{
+      print("entro a cerrar and change $id  ");
+      bool ab = await model.closemylist(id);
+
+   
+  }
+  void finalize(context,MyListModel model,String id) async{
+      bool c = await model.finalize(id);
+  
+  }
+
   Widget listaadded(context,MyListModel model){
  
-         if  (model.listas != null){
-      print("entro ${model.listas.length}");
+         if  (model.listavecinos.length != 0){
+      print("entro ${model.listavecinos.length}");
      return Center(
        
     child:  ListView.builder(
       shrinkWrap: true,
  
-      itemCount: model.listas.length,
+      itemCount: model.listavecinos.length,
       itemBuilder: (context, posicion) {
         
-        var element = model.listas[posicion];
-            print("entro2");
+        var element = model.listavecinos[posicion];
+        
         return itemusuariolista(element, posicion, context,model);
       },
     )
     );
   }
   }
+
   Widget itemusuariolista(UserList element,int posicion,context,MyListModel model){
  return Dismissible(
       key: UniqueKey(),
@@ -133,7 +190,6 @@ MisProductos({this.myid,this.username});
     );
   }
 
-  
    Widget item( context,MyListModel model) {
  
     return Dismissible(
@@ -156,7 +212,7 @@ MisProductos({this.myid,this.username});
                       ),
                         Center(
           
-                        child: Text("Username :  ${model.myuser.useremail}" ), 
+                        child: Text("Username :  ${model.milista.useremail}" ), 
                       ),
                         Container(
                           height: 62.0,
@@ -165,7 +221,7 @@ MisProductos({this.myid,this.username});
                         ),
                         Center(
                    
-                        child: Text("Total : ${model.myuser.total}"), 
+                        child: Text("Total : ${model.milista.total}"), 
                       )
                     ],
           
@@ -176,26 +232,28 @@ MisProductos({this.myid,this.username});
       ),
     );
   }
+
   Widget _list(MyListModel model, context) {
       Function eq = const ListEquality().equals;
     
- 
-         if  (model.myuser.productos!=null){
+         if(model.milista.productos != null){
+         if  (model.milista.productos.length != 0){
      return Center(
        
     child:  ListView.builder(
       shrinkWrap: true,
  
-      itemCount: model.myuser.productos.length,
+      itemCount: model.milista.productos.length,
       itemBuilder: (context, posicion) {
         
-        var element = model.myuser.productos[posicion];
+        var element = model.milista.productos[posicion];
         
         return _item(element, posicion, context,model);
       },
     )
     );
-  }}
+  }}}
+
     Widget _item(Product element, int posicion, context,MyListModel model) {
  
     return Dismissible(
@@ -246,9 +304,10 @@ MisProductos({this.myid,this.username});
 
 
   }
-  listaproducto(MyListModel model,context,UserList elementito){
+
+  listaproducto(MyListModel model,context,UserList elementito) {
       
-         if  (elementito.productos!=null){
+         if  (elementito.productos.length != 0){
      return Center(
        
     child:  ListView.builder(
@@ -264,7 +323,5 @@ MisProductos({this.myid,this.username});
     )
     );
   }}
-
-
 }
 

@@ -51,10 +51,6 @@ class ShopList extends StatelessWidget {
                               padding: EdgeInsets.only(top: 20, bottom: 10),
                             ),
                             StreamBuilder(
-                             
-            /*  stream: Firestore.instance.collection('ShopList').document('$id').get().then((DocumentSnapshot document){
-                     UserList  usuarioL = new UserList.fromJson(document.data);
-              });*/
                stream: Firestore.instance.collection('ShopList').document(myid).snapshots(),
               builder: (BuildContext context,  AsyncSnapshot<DocumentSnapshot> snapshot) {
                 if(!snapshot.hasData){
