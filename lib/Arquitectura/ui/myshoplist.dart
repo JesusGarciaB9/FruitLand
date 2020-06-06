@@ -222,7 +222,7 @@ class ShopList extends StatelessWidget {
                   ),
                     FlatButton(
                     child: Text('eliminar'),
-                    onPressed: () => agregarcarrito(context,element,model,posicion),
+                    onPressed: () {}
                   ),
                 Spacer(),
               ],
