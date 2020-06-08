@@ -64,7 +64,7 @@ class _MisProductosState extends State<MisProductos> {
                        child: listaadded(context,model),
                        ),
                   
-                                                           StreamBuilder(
+                StreamBuilder(
                stream: Firestore.instance.collection('ShopList').document(model.milista.myid).snapshots(),
               builder: (BuildContext context,  AsyncSnapshot<DocumentSnapshot> snapshot) {
                 if(!snapshot.hasData){

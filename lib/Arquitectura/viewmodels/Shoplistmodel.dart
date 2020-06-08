@@ -98,7 +98,8 @@ class ShopListModel extends BaseModel {
       'estado':'abierta',
       'Total':'$total',
       'myId' :'$superid',
-      'IdListas' :  FieldValue.arrayUnion([]), 
+      'IdListas' :  FieldValue.arrayUnion([]),
+      'pertencea':'', 
     }
            );
     print("lo creó?");
