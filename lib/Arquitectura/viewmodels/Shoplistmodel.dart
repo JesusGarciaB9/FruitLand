@@ -75,7 +75,8 @@ class ShopListModel extends BaseModel {
       'estado':'abierta',
       'Total':'$total',
       'myId' :'$uid',
-      'IdListas' :  FieldValue.arrayUnion([]), 
+      'IdListas' :  FieldValue.arrayUnion([]),
+      'pertenecea':'', 
     }
                        
                       );
