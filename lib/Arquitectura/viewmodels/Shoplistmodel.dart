@@ -76,6 +76,7 @@ class ShopListModel extends BaseModel {
       'Total':'$total',
       'myId' :'$uid',
       'IdListas' :  FieldValue.arrayUnion([]), 
+      'pertenecea':'', 
     }
                        
                       );
@@ -99,6 +100,7 @@ class ShopListModel extends BaseModel {
       'Total':'$total',
       'myId' :'$superid',
       'IdListas' :  FieldValue.arrayUnion([]), 
+       'pertenecea':'', 
     }
            );
     print("lo creó?");

@@ -81,6 +81,7 @@ class _VecinosState extends State<Vecinos> {
       itemBuilder: (context, posicion) {
         var element = model.listas[posicion];
         if (element.pertenecea == "") {
+          print("entrooooooo yi");
           pertenecea.add(false);
         } else {
           pertenecea.add(true);
