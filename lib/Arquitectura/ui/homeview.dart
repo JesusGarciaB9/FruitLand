@@ -38,6 +38,7 @@ class Home extends StatelessWidget {
             
                 Spacer(),
                 FlatButton(
+<<<<<<< HEAD
                     child: Text('Product List'),
                     onPressed: () => toshopList(context,model.uid,model.username)),
                 
@@ -47,6 +48,30 @@ class Home extends StatelessWidget {
                  FlatButton(
                     child: Text('My Neighbours'),
                     onPressed: () => vecinos(context,model.uid,model.username)),
+=======
+                    child: Text('Product List',style: TextStyle(fontSize: 20.0)),
+                    color: Theme.of(context).buttonColor,
+                    textColor: Colors.white,
+                    onPressed: () => toshopList(context,model.uid,model.username),
+                    shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                    ),
+                Divider(),
+                FlatButton(
+                    child: Text('My List',style: TextStyle(fontSize: 20.0)),
+                    color: Theme.of(context).buttonColor,
+                    textColor: Colors.white,
+                    onPressed: () => tomyList(context,model.uid,model.username),
+                    shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                    ),
+                 Divider(),
+                 FlatButton(
+                    child: Text('My Neighbours',style: TextStyle(fontSize: 20.0)),
+                    color: Theme.of(context).buttonColor,
+                    textColor: Colors.white,
+                    onPressed: () => vecinos(context,model.uid,model.username),
+                    shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                    ),
+>>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
  
                 Spacer(),
           ],

@@ -75,8 +75,16 @@ class ShopListModel extends BaseModel {
       'estado':'abierta',
       'Total':'$total',
       'myId' :'$uid',
+<<<<<<< HEAD
       'IdListas' :  FieldValue.arrayUnion([]),
       'pertenecea':'', 
+=======
+      'IdListas' :  FieldValue.arrayUnion([]), 
+<<<<<<< HEAD
+=======
+      'pertenecea':'', 
+>>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
+>>>>>>> master
     }
                        
                       );
@@ -99,8 +107,16 @@ class ShopListModel extends BaseModel {
       'estado':'abierta',
       'Total':'$total',
       'myId' :'$superid',
+<<<<<<< HEAD
       'IdListas' :  FieldValue.arrayUnion([]),
       'pertencea':'', 
+=======
+      'IdListas' :  FieldValue.arrayUnion([]), 
+<<<<<<< HEAD
+=======
+       'pertenecea':'', 
+>>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
+>>>>>>> master
     }
            );
     print("lo creó?");
