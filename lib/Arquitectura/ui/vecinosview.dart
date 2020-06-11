@@ -81,10 +81,7 @@ class _VecinosState extends State<Vecinos> {
       itemBuilder: (context, posicion) {
         var element = model.listas[posicion];
         if (element.pertenecea == "") {
-<<<<<<< HEAD
-=======
           print("entrooooooo yi");
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
           pertenecea.add(false);
         } else {
           pertenecea.add(true);
@@ -112,41 +109,26 @@ class _VecinosState extends State<Vecinos> {
                     children: <Widget>[
                       Container(
                         margin: EdgeInsets.all(5),
-<<<<<<< HEAD
-                        child: Text("Usuario : ${element.useremail}"),
-=======
                         child: Text("Usuario : ${element.useremail}",style: TextStyle(fontSize: 16.0)),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                       ),
                       Container(
                         margin: EdgeInsets.all(5),
                         child:
-<<<<<<< HEAD
-                            Text("Total compra : ${element.total.toString()} "),
-=======
                             Text("Total compra : ${element.total.toString()} ",style: TextStyle(fontSize: 16.0)),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                       ),
                     ],
                   ),
                 ),
-<<<<<<< HEAD
-=======
                 Spacer(),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                 Container(
                   child: Column(
                     children: <Widget>[
                       FlatButton(
                           child: Text(pertenecea[posicion] == false
                               ? 'Ayudar'
-<<<<<<< HEAD
-                              : 'Borrar'),
-=======
                               : 'Borrar',style: TextStyle(fontSize: 16.0)),
                               color: Theme.of(context).buttonColor,
                                 textColor: Colors.white,
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                           onPressed: () => {
                                 pertenecea[posicion] == false
                                     ? {
@@ -168,10 +150,6 @@ class _VecinosState extends State<Vecinos> {
                                             posicion)
                                       }
                                      
-<<<<<<< HEAD
-                              }),
-                      FlatButton(child: Text('Ver detalles'), onPressed: () {}),
-=======
                               },
                               shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                               ),
@@ -181,7 +159,6 @@ class _VecinosState extends State<Vecinos> {
                       onPressed: () {},
                       shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                       ),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                     ],
                   ),
                 ),

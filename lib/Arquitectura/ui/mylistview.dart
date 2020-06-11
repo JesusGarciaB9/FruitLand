@@ -57,11 +57,7 @@ class _MisProductosState extends State<MisProductos> {
                                 padding: EdgeInsets.only( top: 20,bottom: 10),                 
                        ),
                         Center(
-<<<<<<< HEAD
-                                child:Text("Listas añadidas"),                 
-=======
                                 child:Text("Listas añadidas",style: TextStyle(fontSize: 20.0)),                 
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                        ),
                        Container(
                          height: 160,
@@ -82,26 +78,13 @@ class _MisProductosState extends State<MisProductos> {
             
                  if (usuarioL.abierta == "abierta"){
                       return new FlatButton( 
-<<<<<<< HEAD
-                                child: Text('Cerrar'),
-=======
                                 child: Text('Cerrar',style: TextStyle(fontSize: 20.0)),
                                 color: Theme.of(context).buttonColor,
                                 textColor: Colors.white,
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                                 onPressed:(){
                                      cerrarandchange(context, model, model.milista.myid);
                                                                
                                  },
-<<<<<<< HEAD
-                           );
-                 }else{
-                       return new FlatButton( 
-                                child: Text('Finalizar'),
-                                onPressed:(){ 
-                                                   finalize(context, model, model.milista.myid);               
-                                 },
-=======
                                  shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                            );
                  }else{
@@ -113,26 +96,18 @@ class _MisProductosState extends State<MisProductos> {
                                                    finalize(context, model, model.milista.myid);               
                                  },
                                  shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                            );
                  }
                  }
               } }  return new FlatButton( 
-<<<<<<< HEAD
-                                child: Text('Cerrar'),
-=======
                                 child: Text('Cerrar',style: TextStyle(fontSize: 20.0)),
                                 color: Theme.of(context).buttonColor,
                                 textColor: Colors.white,
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                                 onPressed:(){
                                              cerrarandchange(context, model, model.milista.myid); 
                                                                
                                  },
-<<<<<<< HEAD
-=======
                                  shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                            );             
                }
             ),
@@ -199,16 +174,6 @@ class _MisProductosState extends State<MisProductos> {
                     children: <Widget>[
                       Center(
              
-<<<<<<< HEAD
-                        child: Text("  shoping List"), 
-                      ),
-                        Center(
-          
-                        child: Text("Username :  ${element.useremail}" ), 
-                      ),
-                           Container(
-                          height: 62.0,
-=======
                         child: Text("  shoping List",style: TextStyle(fontSize: 20.0)), 
                       ),
                         Center(
@@ -217,17 +182,12 @@ class _MisProductosState extends State<MisProductos> {
                       ),
                            Container(
                           height: 100.0,
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                          
                             child:listaproducto(model, context,element),
                         ),
                         Center(
                    
-<<<<<<< HEAD
-                        child: Text("Total : ${element.total}"), 
-=======
                         child: Text("Total : ${element.total}",style: TextStyle(fontSize: 18.0)), 
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                       )
                     ],
           
@@ -256,17 +216,6 @@ class _MisProductosState extends State<MisProductos> {
                      crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                       Center(
-<<<<<<< HEAD
-             
-                        child: Text("My shoping List"), 
-                      ),
-                        Center(
-          
-                        child: Text("Username :  ${model.milista.useremail}" ), 
-                      ),
-                        Container(
-                          height: 62.0,
-=======
                        
                         child: Text("My shoping List",style: TextStyle(fontSize: 20.0)),
                       ),
@@ -276,17 +225,12 @@ class _MisProductosState extends State<MisProductos> {
                       ),
                         Container(
                           height: 100.0,
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                          
                             child:_list(model, context),
                         ),
                         Center(
                    
-<<<<<<< HEAD
-                        child: Text("Total : ${model.milista.total}"), 
-=======
                         child: Text("Total : ${model.milista.total}",style: TextStyle(fontSize: 18.0)), 
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                       )
                     ],
           
@@ -327,20 +271,6 @@ class _MisProductosState extends State<MisProductos> {
                 Center(
                   
                   child: Column(
-<<<<<<< HEAD
-                     
-                     children: <Widget>[
-                     
-                       Container(
-                          decoration: new BoxDecoration(color: Colors.green),
-                        child:Center(
-                        
-                        child: Text("Nombre Producto :  "+element.name), 
-                      ),),
-                       Container(
-                         
-                          decoration: new BoxDecoration(color: Colors.blue),
-=======
                      //shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                      children: <Widget>[
                      
@@ -356,7 +286,6 @@ class _MisProductosState extends State<MisProductos> {
                        Container(
                          
                           decoration: new BoxDecoration(color: Colors.grey),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                        
                           alignment: Alignment.center,
                          child: Row(
@@ -366,31 +295,18 @@ class _MisProductosState extends State<MisProductos> {
                           children: <Widget>[
                             Center(
                         
-<<<<<<< HEAD
-                        child: Text("Precio : ${element.price.toString()}    "), 
-=======
                         child: Text("Precio : ${element.price.toString()}    ",style: TextStyle(fontSize: 18.0)), 
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                       ),
                 
                             Center(
              
-<<<<<<< HEAD
-                        child: Text("cantidad: ${element.cuantity.toString()}"),  
-=======
                         child: Text("cantidad: ${element.cuantity.toString()}",style: TextStyle(fontSize: 18.0)),  
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                       ),
 
                           ],
                          ),
                        ),
                      
-<<<<<<< HEAD
-                   
-              
-=======
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                      ]
                   )
                   ));

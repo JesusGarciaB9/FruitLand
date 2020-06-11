@@ -25,10 +25,7 @@ class SignUp extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 32.3606798,),
               email(emailController),
-<<<<<<< HEAD
-=======
               Divider(),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
               password(passController),
              
               SizedBox(height:48.2842712),
@@ -41,10 +38,7 @@ class SignUp extends StatelessWidget {
              
                   Navigator.pop(context);
                 },
-<<<<<<< HEAD
-=======
                 shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                 child: Text('Crear Cuenta'),
               ),
             ],

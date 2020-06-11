@@ -63,27 +63,16 @@ class ShopList extends StatelessWidget {
                  UserList  usuarioL = new UserList.fromJson(snapshot.data.data);
                  print("user info ${usuarioL.abierta  }");
                  if (usuarioL.abierta == "abierta"){
-<<<<<<< HEAD
-                      return new FlatButton( 
-                                child: Text('Guardar Lista de compras'),
-=======
                    
                       return new FlatButton( 
                         
                                 child: Text('Guardar Lista de compras',style: TextStyle(fontSize: 20.0)),
                                 color: Theme.of(context).buttonColor,
                                 textColor: Colors.white,
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                                 onPressed:(){
                                      model.saveList(model.mylist);  
                                                                
                                  },
-<<<<<<< HEAD
-                           );
-                 }else{
-                       return new FlatButton( 
-                                child: Text('Actualmente no puedes modificar la lista'),
-=======
                                  shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                       );
                  }else{
@@ -91,26 +80,15 @@ class ShopList extends StatelessWidget {
                                 child: Text('Actualmente no puedes modificar la lista',style: TextStyle(fontSize: 20.0)),
                                 color: Theme.of(context).buttonColor,
                                 textColor: Colors.white,
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                                 onPressed:(){
                                      
                                                                
                                  },
-<<<<<<< HEAD
-=======
                                  shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                            );
                  }
                  }
               } }  return new FlatButton( 
-<<<<<<< HEAD
-                                child: Text('Guardar Lista de compras'),
-                                onPressed:(){
-                                     model.saveList(model.mylist);  
-                                                               
-                                 },
-=======
                                 child: Text('Guardar Lista de compras',style: TextStyle(fontSize: 20.0)),
                                 color: Theme.of(context).buttonColor,
                                 textColor: Colors.white,
@@ -119,7 +97,6 @@ class ShopList extends StatelessWidget {
                                                                
                                 },
                                 shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                            );             
                }
             ),
@@ -171,11 +148,7 @@ class ShopList extends StatelessWidget {
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
-<<<<<<< HEAD
-        title: Text('Seleccion el numero de productos'),
-=======
         title: Text('Seleccion el numero de productos',style: TextStyle(fontSize: 16.0)),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
         content:  new Row(
           children: <Widget>[
             new Expanded(
@@ -183,22 +156,14 @@ class ShopList extends StatelessWidget {
                 controller: cuantityController,
                 autofocus: true,
                 decoration: new InputDecoration(
-<<<<<<< HEAD
-                    labelText: 'Seleccione el numero de ${element.name}.  ', hintText: ''),
-=======
                     labelText: 'Seleccione el numero de ${element.name}.  ', hintText: ''),style: TextStyle(fontSize: 16.0)
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
               ),
             )
           ],
         ),
         actions: <Widget>[
           FlatButton(
-<<<<<<< HEAD
-            child: Text('Guardar'),
-=======
             child: Text('Guardar',style: TextStyle(fontSize: 16.0)),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
             onPressed: () {
                int cantidad =  int.parse(cuantityController.text.trim());
                model.changecuantity(index,cantidad);
@@ -257,16 +222,6 @@ class ShopList extends StatelessWidget {
           
                   ),
                 ),
-<<<<<<< HEAD
- 
-                   FlatButton(
-                    child: Text('Agregar al carrito'),
-                    onPressed: () => agregarcarrito(context,element,model,posicion),
-                  ),
-                    FlatButton(
-                    child: Text('eliminar'),
-                    onPressed: () {}
-=======
 
                  Spacer(),
                    FlatButton(
@@ -283,7 +238,6 @@ class ShopList extends StatelessWidget {
                     textColor: Colors.white,
                     onPressed: () {},
                     shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                   ),
                 Spacer(),
               ],
@@ -303,11 +257,6 @@ class ShopList extends StatelessWidget {
           actions: <Widget>[
             FlatButton(
                 child: Text('OK'),
-<<<<<<< HEAD
-                onPressed: () {
-                  Navigator.of(context).pop();
-                })
-=======
                 color: Theme.of(context).buttonColor,
                     textColor: Colors.white,
                 onPressed: () {
@@ -315,7 +264,6 @@ class ShopList extends StatelessWidget {
                 },
                 shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                 )
->>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
           ],
         );
       },
