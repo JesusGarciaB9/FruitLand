@@ -27,9 +27,15 @@ class Vecinosmodel extends BaseModel {
 
     for (var item in a) {
       if (item.abierta == "cerrada" && item.myid != id) { //validamos que sea una lista cerrada y que no sea la mia
+<<<<<<< HEAD
         if(item.pertenecea == "$id" || item.pertenecea == ""){ //validamos que la lista no esté tomada por otra persona
           listas.add(item);
         } 
+=======
+   
+          listas.add(item);
+       
+>>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
       }
      
        

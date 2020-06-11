@@ -32,9 +32,16 @@ class LoginView extends StatelessWidget {
                               width: 50,
                             ),
                             SizedBox(
+<<<<<<< HEAD
                               height: 10,
                             ),
                             email(emailController),
+=======
+                              height: 50,
+                            ),
+                            email(emailController),
+                            Divider(),
+>>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                             password(passController),
                             SizedBox(
                               height: 40,
@@ -62,6 +69,10 @@ class LoginView extends StatelessWidget {
                                         .setLoggedIn(model.user.email,model.user.uid);
                                   }
                                 },
+<<<<<<< HEAD
+=======
+                                shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+>>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                               ),
                             ),
                             SizedBox(
@@ -80,6 +91,10 @@ class LoginView extends StatelessWidget {
                                         builder: (context) => SignUp()),
                                   );
                                 },
+<<<<<<< HEAD
+=======
+                                shape: new RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+>>>>>>> 41a46c53bab3dbee907606856d18d7fcea5194f8
                               ),
                             ),
                           ],
